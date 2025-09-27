@@ -1,0 +1,63 @@
+<div class="container mt-4" *ngIf="dataLoaded">
+  <!-- Check if there are any records -->
+  <div *ngIf="socialMediaList.length > 0; else noRecords; trackBy: trackById">
+    <!-- Display Table if there are records -->
+    <div class="card shadow-sm">
+      <div class="card-body" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+        <h4 class="card-title text-center mb-4">Social Media Links</h4>
+        <div class="mb-3">
+          <!-- <label for="socialMediaFilter" class="form-label">Filter by Social Media Type</label> -->
+          <!-- <select id="socialMediaFilter" class="form-select" [(ngModel)]="selectedSocialMedia" (change)="filterSocialMedia()">
+            <option value="">All</option>
+            <option value="instagram">Instagram</option>
+            <option value="facebook">Facebook</option>
+            <option value="twitter">Twitter</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="youtube">YouTube</option>
+            <option value="other">Other</option>
+          </select> -->
+        </div>
+        <table class="table table-bordered table-hover">
+          
+          <thead class="thead-dark">
+            <tr>
+              <th>Person Name</th>
+              <th>Social Media</th>
+              <th>Link</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of socialMediaList">
+              <td>{{ record.personName }}</td>
+              <td>{{ record.socialMedia }}</td>
+              <td>
+                <a [href]="record.socialMediaLink" target="_blank" class="text-primary">{{ record.socialMediaLink }}</a>
+              </td>
+              <td>
+                <!-- Trash Bin Icon for Delete -->
+                <i 
+                  class="fas fa-trash-alt text-danger cursor-pointer" 
+                  (click)="deleteRecord(record)" 
+                  title="Delete this record"
+                  style="font-size: 1.5rem;">
+                </i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- No Records Template -->
+  <ng-template #noRecords async>
+    <div class="text-center mt-5">
+      <h3 class="text-muted">No Links Found</h3>
+      <p class="text-muted" style="font-size: 1.25rem;">
+        You have not added any links! Please add links using the <strong>Add Link</strong> button from the header or below.
+      </p>
+      <a routerLink="/addLink" class="btn btn-warning btn-lg">Add Link</a>
+    </div>
+  </ng-template>
+</div>

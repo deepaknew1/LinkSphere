@@ -1,0 +1,15 @@
+/* Blue border when input is focused */
+.is-focused {
+    border-color: #007bff !important; /* Blue color */
+  }
+  
+  /* Red border when input is invalid */
+  .is-invalid {
+    border-color: #dc3545 !important; /* Red color */
+  }
+  
+  /* Optional: Add a smooth transition for the border color change */
+  input {
+    transition: border-color 0.3s ease-in-out;
+  }
+  

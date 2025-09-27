@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <form
+    class="p-4 border rounded bg-light"
+    style="width: 400px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);"
+    #addLinkForm="ngForm"
+    (ngSubmit)="onSubmit(addLinkForm)"
+  >
+    <h3 class="text-center mb-4">Add Social Media Link</h3>
+
+    <!-- Person Name -->
+    <div class="mb-3">
+      <label for="personName" class="form-label">Person Name</label>
+      <input
+        type="text"
+        id="personName"
+        class="form-control"
+        name="personName"
+        [(ngModel)]="personName"
+        (ngModelChange)="checkFormValidity()"
+        required
+        placeholder="Enter person's name"
+      />
+    </div>
+
+    <!-- Social Media Dropdown -->
+    <div class="mb-3">
+      <label for="socialMedia" class="form-label">Social Media Platform</label>
+      <select
+        id="socialMedia"
+        class="form-select"
+        name="socialMedia"
+        [(ngModel)]="socialMedia"
+        (ngModelChange)="checkFormValidity()"
+        required
+      >
+        <option value="instagram">Instagram</option>
+        <option value="facebook">Facebook</option>
+        <option value="twitter">Twitter</option>
+        <option value="linkedin">LinkedIn</option>
+        <option value="youtube">YouTube</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <!-- Social Media Link -->
+    <div class="mb-3">
+      <label for="socialMediaLink" class="form-label">Social Media Link</label>
+      <input
+        type="url"
+        id="socialMediaLink"
+        class="form-control"
+        name="socialMediaLink"
+        [(ngModel)]="socialMediaLink"
+        (ngModelChange)="checkFormValidity()"
+        [pattern]="urlPattern"
+        required
+        placeholder="Enter social media link"
+      />
+      <div *ngIf="socialMediaLink && !socialMediaLink.match(urlPattern)" class="text-danger mt-1">
+        Please enter a valid URL.
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-between mt-3">
+      <button
+        type="submit"
+        class="btn btn-warning"
+        [disabled]="!isButtonEnabled"
+      >
+        Add Link
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,54 @@
+<div *ngIf="isLoggedIn" class="header bg-pink py-3">
+  <nav class="navbar navbar-expand-md navbar-light container">
+    <!-- Application Name and Welcome Message -->
+    <a class="navbar-brand text-white d-flex flex-column flex-md-row align-items-center" href="#">
+      <h4 class="mb-0 me-2">LinkSphere</h4>
+      <span *ngIf="isLoggedIn" class="mt-2 mt-md-0">Welcome, <strong>{{ username }}</strong>!</span>
+    </a>
+
+    <!-- Hamburger Menu for Mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-center">
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link text-dark">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/about" class="nav-link text-dark">About</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/contact" class="nav-link text-dark">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/addLink" class="nav-link text-dark">Add Link</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://forms.gle/qrBfPsBuDXYvLbve8" target="_blank" class="nav-link text-dark">Feedback</a>
+        </li>
+        <li class="nav-item">
+          <button (click)="logout()" class="btn btn-warning">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<style>
+  /* Media query for mobile screens */
+  @media (max-width: 767px) {
+    .navbar-brand {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .navbar-brand h4 {
+      margin-bottom: 0;
+    }
+    .navbar-brand span {
+      margin-top: 5px;
+    }
+  }
+</style>

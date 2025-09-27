@@ -1,0 +1,41 @@
+/* app.component.scss */
+
+/* Custom Pink Background for Header */
+.header {
+    background-color: pink; /* Set background color to pink */
+    color: white; /* Ensure text is white for contrast */
+    padding: 15px 0;
+  }
+  
+  /* Styling for the App Name */
+  .app-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Styling for Welcome Message */
+  .welcome-message {
+    font-size: 16px;
+    color: white;
+  }
+  
+  /* Styling for Navigation Links */
+  .nav-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  /* Ensure Navigation Links are White on Pink Background */
+  .nav-link {
+    color: white !important;
+    font-weight: bold;
+  }
+  
+  /* Styling for the Logout Button */
+  .btn-warning {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    font-weight: bold;
+  }
+  
